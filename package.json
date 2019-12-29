@@ -1,12 +1,13 @@
 {
-  "name": "desafio-pagar.me",
+  "name": "payment-service-provider",
   "version": "1.0.0",
-  "description": "",
+  "description": "A simple payment service provider service.",
   "main": "app.js",
   "dependencies": {
     "body-parser": "^1.19.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "mysql": "^2.17.1",
     "mysql2": "^2.1.0",
     "nodemon": "^2.0.2",
     "sequelize": "^5.21.3"
@@ -15,10 +16,15 @@
     "sequelize-cli": "^5.5.1"
   },
   "scripts": {
-    "start": "nodemon app.js",
+    "dev": "nodemon app.js",
+    "prod": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "Maikon Ferreira",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/maikkkko1/payment-service-provider"
+  },
   "license": "ISC"
 }

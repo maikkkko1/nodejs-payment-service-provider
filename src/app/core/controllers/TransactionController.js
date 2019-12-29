@@ -33,6 +33,34 @@ exports.createPayment = async (req, res) => {
   res.send(Request.response(transactionObject));
 };
 
+exports.getTransactions = async (req, res) => {
+  const clientId = req.params.clientId;
+
+  const queryParams = {raw: true};
+
+  if (clientId != undefined) {
+    if (!Util.isValid(clientId)) {
+      res.send(Request.response('Invalid client id', true)); return;
+    }
+
+    queryParams.where = {clientId: clientId};
+  }
+
+  try {
+    const transactions = await Transaction.findAll(queryParams);
+    
+    if (transactions && transactions.length == 0) {
+      res.send(Request.response("There's no transactions found", true)); return;
+    }
+
+    res.send(Request.response(transactions));
+  } catch(err) {
+    console.log(err);
+
+    res.send(Request.response('Fail while getting transactions', true)); return;
+  }
+}
+
 /**
  * Create the transaction and his payables.
  * @param {object} data 
@@ -56,7 +84,7 @@ async function createTransaction(data, cardObject) {
   const payable = await PayablesController.createPayable(transactionObject);
 
   if (!payable) return false;
-
+  
   transactionObject.payable = payable;
 
   return transactionObject;

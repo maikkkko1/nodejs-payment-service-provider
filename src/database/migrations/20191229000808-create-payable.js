@@ -14,6 +14,18 @@ module.exports = {
         allowNull: false,
         type: DataTypes.INTEGER
       },
+      transactionId: {
+        allowNull: false,
+        type: DataTypes.INTEGER
+      },
+      originalValue: {
+        allowNull: false,
+        type: DataTypes.DOUBLE
+      },
+      feeValue: {
+        allowNull: false,
+        type: DataTypes.DOUBLE
+      },
       value: {
         allowNull: false,
         type: DataTypes.DOUBLE

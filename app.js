@@ -1,5 +1,9 @@
 require("dotenv").config();
 
+const databaseHelper = require('./src/database/createDatabase');
+
+databaseHelper.createDatabase();
+
 const Routes = require("./src/routes/routes");
 
 const express = require("express");
