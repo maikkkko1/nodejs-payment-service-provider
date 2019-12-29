@@ -13,8 +13,24 @@ const mockedData = require("./mockData");
 const Util = require("../app/core/Util");
 
 describe("Util unit tests", () => {
-  it("Test: Should pass get funds response", () => {
-    assert.isObject(PayablesController.getFundsResponse(mockedData.payablesQueryResponse));
+  it("Test: Should pass get is valid", () => {
+    assert.isTrue(Util.isValid('test string'));
   });
+
+  it("Test: Should fail get is valid", () => {
+    assert.isFalse(Util.isValid(undefined));
+  });
+
+  it("Test: Should pass get is valid object", () => {
+    assert.isTrue(Util.isValidObject({attr: 'test attr', attr2: 'test attr2'}));
+  });
+
+  it("Test: Should fail get is valid object", () => {
+    assert.isFalse(Util.isValidObject({attr: null, attr2: 'test attr2'}));
+  });
+
+//   it("Test: Should pass format monetary", () => {
+//     assert.equal(Util.formatMonetary(50), 'R$ 50.00');
+//   });
 
 });

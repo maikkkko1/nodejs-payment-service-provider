@@ -6,8 +6,6 @@
  * @desc Mocked data for unit tests.
  */
 
-
-
 exports.payableValue = 377;
 exports.payableFee = 7;
 
