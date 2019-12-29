@@ -9,7 +9,6 @@
 const chai = require("chai");
 const assert = chai.assert;
 
-const mockedData = require("./mockData");
 const Util = require("../app/core/Util");
 
 describe("Util unit tests", () => {
@@ -28,9 +27,4 @@ describe("Util unit tests", () => {
   it("Test: Should fail get is valid object", () => {
     assert.isFalse(Util.isValidObject({attr: null, attr2: 'test attr2'}));
   });
-
-//   it("Test: Should pass format monetary", () => {
-//     assert.equal(Util.formatMonetary(50), 'R$ 50.00');
-//   });
-
 });
