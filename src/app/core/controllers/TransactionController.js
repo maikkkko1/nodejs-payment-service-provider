@@ -14,11 +14,11 @@ const PayablesController = require('./PayablesController');
 exports.createPayment = async (req, res) => {
   const body = req.body;
 
-  if (!Util.isValid(body) || !Util.isValidObject(body) || !validateBody(body)) {
+  if (!Util.isValid(body) || !Util.isValidObject(body) || !this.validateBody(body)) {
     res.send(Request.response('Invalid body', true)); return;
   }
 
-  const cardObject = getCardObject(req.body.cardData);
+  const cardObject = this.getCardObject(req.body.cardData);
 
   if (!cardObject) {
     res.send(Request.response('Invalid card data', true)); return;
@@ -90,7 +90,7 @@ async function createTransaction(data, cardObject) {
   return transactionObject;
 }
 
-function validateBody(body) {
+exports.validateBody = (body) => {
   const validateKeys = ['clientId', 'value', 'description', 'paymentMethod', 'cardData', 'installments'];
 
   for (const key of validateKeys) {
@@ -100,7 +100,7 @@ function validateBody(body) {
   return true;
 }
 
-function getCardObject(data) {
+exports.getCardObject = (data) => {
   const cardKeys = Object.keys(data);
 
   if (cardKeys.length < 4) return false;
