@@ -64,8 +64,9 @@ Body example:
 	"installments": 2
 }
 ```
+
+Success response example:
 ```javascript
-Response example:
   "error": null,
     "result": {
         "clientId": 1234,
@@ -91,4 +92,19 @@ Response example:
 }
 ```
 
+#### Returns all the transactions created.
+```
+GET /api/v1/transaction/getTransactions
+```
 
+#### Returns all the transactions created by clientId.
+```
+GET /api/v1/transaction/getTransaction/:clientId
+```
+
+#### Returns the funds from a clientId, filtered by status.
+#### The type can be 'available' for already received funds or 'waiting' for waiting funds.
+```
+GET /api/v1/payable/funds/:clientId/:type
+Example: /api/v1/payable/funds/1234/available
+```
