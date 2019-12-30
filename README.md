@@ -44,8 +44,51 @@ The database and tables should now be created.
 
 ## APIs
 
-#### Creates a payment and his payables (cash-in).
-```javascript
+#### Creates a payment and his payables already processing the fee's. (cash-in).
+```
 POST /api/v1/transaction/payment
 ```
+Body example: 
+```javascript
+{
+	"clientId":1234,
+	"value":350.00,
+	"description": "iPhone 8 Plus 128GB Code: 1355",
+	"paymentMethod": "credit_card",
+	"cardData": {
+		"cardNumber": "4111 1111 1111 1111",
+		"cardName": "Maikon",
+		"cardValidate": "10/20",
+		"cardCvv": "737"
+	},
+	"installments": 2
+}
+```
+```javascript
+Response example:
+  "error": null,
+    "result": {
+        "clientId": 1234,
+        "value": 350,
+        "description": "iPhone 8 Plus 128GB Code: 1355",
+        "paymentMethod": "credit_card",
+        "cardData": "{\"cardNumber\":\"**** **** **** 1111\",\"cardName\":\"Maikon\",\"cardValidate\":\"10/20\",\"cardCvv\":\"737\"}",
+        "installments": 2,
+        "transactionId": 1,
+        "payable": {
+            "transactionId": 1,
+            "clientId": 1234,
+            "description": "iPhone 8 Plus 128GB Code: 1355",
+            "originalValue": 350,
+            "fee": 5,
+            "status": "waiting_funds",
+            "value": 332.5,
+            "feeValue": 17.5,
+            "paymentDate": "2020-01-29T00:28:24.910Z",
+            "payableId": 1
+        }
+    }
+}
+```
+
 
