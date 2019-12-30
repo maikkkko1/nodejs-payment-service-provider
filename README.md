@@ -1,6 +1,7 @@
 # Payment Service Provider Service
 
-##### Payment Service Provider or PSP is a payments service based on Pagar.me. Initialy developed to learn more about how payments works in Brazil.
+##### A simplified version of a payments service provider like the Pagar.me
+https://github.com/pagarme/vagas/tree/master/desafios/software-engineer-backend
 
 ## Context
 ##### The PSP service has basically two very important functions:
