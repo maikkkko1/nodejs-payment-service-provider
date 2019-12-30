@@ -38,3 +38,14 @@ npm run dev
 npx sequelize db:migrate
 npm run dev
 ```
+
+#### 
+The database and tables should now be created.
+
+## APIs
+
+#### Creates a payment and his payables (cash-in).
+```javascript
+POST /api/v1/transaction/payment
+```
+
