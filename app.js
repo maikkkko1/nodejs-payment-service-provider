@@ -14,4 +14,4 @@ app.use(express.urlencoded({ extended: false }));
 
 app.use("/api/v1", new Routes().loadRoutes());
 
-app.listen(4000);
+app.listen(3000);

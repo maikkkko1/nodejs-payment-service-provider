@@ -25,7 +25,7 @@ class Routes {
 
   /** App routes. */
   prepareRoutes() {
-    this.router.post("/transaction/createPayment", TransacationController.createPayment.bind(this));
+    this.router.post("/transaction/payment", TransacationController.createPayment.bind(this));
     this.router.get("/transaction/getTransactions", TransacationController.getTransactions.bind(this));
     this.router.get("/transaction/getTransaction/:clientId", TransacationController.getTransactions.bind(this));
 
